@@ -2,10 +2,10 @@
 \alias{addTicket}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-%%  ~~function to do ... ~~
+  Add Ticket
 }
 \description{
-%%  ~~ A concise (1-5 lines) description of what the function does. ~~
+  Add a ticket to a ticket's list.
 }
 \usage{
 addTicket(pTickets)
@@ -30,7 +30,7 @@ addTicket(pTickets)
 %% ~put references to the literature/web site here ~
 }
 \author{
-%%  ~~who you are~~
+  Daniel Fernandes Henrique
 }
 \note{
 %%  ~~further notes~~
