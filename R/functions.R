@@ -24,7 +24,7 @@ toFactor <- function(column,lev){
   return(factor(tolower(sub(" ","",column)),ordered = TRUE, levels = lev));
 }
 getTickets <- function(){
-  return(as.character(read.csv("tickets.csv")[[1]]));
+  return(as.character(read.csv("data/tickets.csv")[[1]]));
 }
 addTicket <- function(pTickets){
   tryCatch({
@@ -43,7 +43,7 @@ formateTicketDf <- function(df){
 write.csv(getTickets(), file="tempTickets.csv", row.names = FALSE)
 updateDatasets <- function(){
   tryCatch({
-    tickets <- as.character(read.csv("tempTickets.csv")[[1]])
+    tickets <- as.character(read.csv("data/tempTickets.csv")[[1]])
     print(NROW(tickets))
     for(tticket in tickets){
       
@@ -124,7 +124,7 @@ getSpeed <- function(df){
   return(as.numeric(lmdff$coefficients[2]) - as.numeric(lmdf$coefficients[2]))
 }
 getFundamentusData <- function(){
-  fund <- read.csv("BusinessJson.csv")
+  fund <- read.csv("data/BusinessJson.csv")
   fund$papel <- paste(fund$papel,".SA",sep = "")
   return(fund)
 }
@@ -265,7 +265,7 @@ updateVarCA <- function(obj){
 }
 
 analiseTendencia <- function(obj,vFast,vSlow){
-  tickets <- as.character(read.csv("objTickets.csv")[[1]])
+  tickets <- as.character(read.csv("data/objTickets.csv")[[1]])
   newObj <- new.env()
   for(ticket in tickets){
     tryCatch({
@@ -289,7 +289,7 @@ analiseTendencia <- function(obj,vFast,vSlow){
 
 
 updateCATickets <- function(obj){
-  tickets <- as.character(read.csv("objTickets.csv")[[1]])
+  tickets <- as.character(read.csv("data/objTickets.csv")[[1]])
   newObj <- new.env()
   count <- NROW(tickets)
   for(ticket in tickets){
@@ -328,7 +328,7 @@ plotTendency <- function(ds){
 }
 
 getPotencialGain <- function(obj, from, to){
-  tickets <- as.character(read.csv("objTickets.csv")[[1]])
+  tickets <- as.character(read.csv("data/objTickets.csv")[[1]])
   newObj <- new.env()
   for(ticket in tickets){
     print(ticket)
@@ -413,7 +413,7 @@ getCATickets <- function(tickets){
 }
 
 getTendencyModel <- function(en,CAs){
-  tickets <- as.character(read.csv("objTickets.csv")[[1]])
+  tickets <- as.character(read.csv("data/objTickets.csv")[[1]])
   newObj <- new.env()
   for(ticket in tickets){
     lengthDs <- nrow(en[[ticket]])
