@@ -1,24 +1,40 @@
-install.packages("quantmod")
-install.packages("data.table")
-install.packages("ggplot2")
-install.packages("plotly")
-install.packages("shiny")
-install.packages("forecast")
-install.packages("tseries")
-install.packages("shiny")
-install.packages("ggplot2")
-install.packages("plotly")
-
-library(quantmod)
-library(data.table)
-library(ggplot2)
-library(plotly)
-library(shiny)
-library('forecast')
-library(tseries)
-library(shiny)
-library(ggplot2)
-library(plotly)
+packages <- c(
+  "quantmod",
+  "data.table",
+  "ggplot2",
+  "plotly",
+  "shiny",
+  "forecast",
+  "tseries",
+  "shiny",
+  "ggplot2",
+  "plotly"
+)
+instPack <- setdiff(packages, rownames(installed.packages()))
+if (length(instPack) > 0) {
+  install.packages(instPack)
+}
+# install.packages("quantmod")
+# install.packages("data.table")
+# install.packages("ggplot2")
+# install.packages("plotly")
+# install.packages("shiny")
+# install.packages("forecast")
+# install.packages("tseries")
+# install.packages("shiny")
+# install.packages("ggplot2")
+# install.packages("plotly")
+# 
+# library(quantmod)
+# library(data.table)
+# library(ggplot2)
+# library(plotly)
+# library(shiny)
+# library('forecast')
+# library(tseries)
+# library(shiny)
+# library(ggplot2)
+# library(plotly)
 
 toFactor <- function(column,lev){
   return(factor(tolower(sub(" ","",column)),ordered = TRUE, levels = lev));
