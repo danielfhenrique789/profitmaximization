@@ -2,7 +2,7 @@
 \alias{getLastTicket}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-%%  ~~function to do ... ~~
+  Get last ticket in a dataframe.
 }
 \description{
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
