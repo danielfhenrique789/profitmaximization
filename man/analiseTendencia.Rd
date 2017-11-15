@@ -2,10 +2,10 @@
 \alias{analiseTendencia}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-%%  ~~function to do ... ~~
+  Tendency Analise
 }
 \description{
-%%  ~~ A concise (1-5 lines) description of what the function does. ~~
+  Verify if some ticket are in a up case or down case.
 }
 \usage{
 analiseTendencia(obj, vFast, vSlow)
