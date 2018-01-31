@@ -79,7 +79,7 @@ updateDatasets <- function(){
   error=function(e){
     print("Error:")
     print(e)
-    write.csv(tickets, file="tempTickets.csv", row.names = FALSE)
+    write.csv(tickets, file="data/tempTickets.csv", row.names = FALSE)
     updateDatasets()
   })
 }
