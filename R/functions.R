@@ -146,7 +146,9 @@ getFundamentusData <- function(){
 }
 updateAnalises <- function(obj){
   tickets <- paste(getTickets(),".SA",sep = "")
+  print("UpdateAnalises")
   fund <- getFundamentusData()
+  print("Get fundamentus data")
   ticketValue <- c()
   name <- c()
   setor <- c()
