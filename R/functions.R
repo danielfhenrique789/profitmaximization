@@ -176,6 +176,7 @@ updateAnalises <- function(obj){
   sigT <- c()
   for(ticket in tickets){
     tryCatch({
+      print(ticket)
       name <- c(name,ifelse((fund[fund$papel == ticket,]$empresa != ""),as.character(fund[fund$papel == ticket,]$empresa),NA))
       setor <- c(setor,ifelse((fund[fund$papel == ticket,]$setor != ""),as.character(fund[fund$papel == ticket,]$setor),NA))
       subsetor <- c(subsetor,ifelse((fund[fund$papel == ticket,]$subsetor != ""),as.character(fund[fund$papel == ticket,]$subsetor),NA))
