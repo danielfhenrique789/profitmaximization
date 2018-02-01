@@ -233,6 +233,7 @@ updateAnalises <- function(obj){
       print(e)
     })
   }
+  print(NROW(tickets[1:379]))
   df <- data.frame(tickets[1:379],name[1:379],ticketValue[1:379],setor[1:379],subsetor[1:379],maxM[1:379],maxS[1:379],maxY[1:379],percW[1:379],percM[1:379],percT[1:379],mediaAmpl[1:379],concavity[1:379],volW[1:379],caD[1:379],vD[1:379],corWeek[1:379],caW[1:379],bW[1:379],sigW[1:379],corMonth[1:379],caM[1:379],sigM[1:379],corTri[1:379],caT[1:379],sigT[1:379])
   names(df) <- c("Ticket","Name","Value","Sector","Subsector","MaxM","MaxS","MaxY","PercW","PercM","PercT","MediaAmpl","Concavity","VolW","CaD","VD","CorrW","CaW","BW","SigW","CorrM","CaM","BM","SigM","CorrT","CaT","BT","SigT")
   return(df)
