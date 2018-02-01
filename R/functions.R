@@ -1,46 +1,30 @@
-packages <- c(
-  "quantmod",
-  "data.table",
-  "ggplot2",
-  "plotly",
-  "shiny",
-  "forecast",
-  "tseries",
-  "shiny",
-  "ggplot2",
-  "plotly"
-)
-instPack <- setdiff(packages, rownames(installed.packages()))
-if (length(instPack) > 0) {
-  install.packages(instPack)
-}
-# install.packages("quantmod")
-# install.packages("data.table")
-# install.packages("ggplot2")
-# install.packages("plotly")
-# install.packages("shiny")
-# install.packages("forecast")
-# install.packages("tseries")
-# install.packages("shiny")
-# install.packages("ggplot2")
-# install.packages("plotly")
-# 
-# library(quantmod)
-# library(data.table)
-# library(ggplot2)
-# library(plotly)
-# library(shiny)
-# library('forecast')
-# library(tseries)
-# library(shiny)
-# library(ggplot2)
-# library(plotly)
+install.packages("quantmod")
+install.packages("data.table")
+install.packages("ggplot2")
+install.packages("plotly")
+install.packages("shiny")
+install.packages("forecast")
+install.packages("tseries")
+install.packages("shiny")
+install.packages("ggplot2")
+install.packages("plotly")
+
+library(quantmod)
+library(data.table)
+library(ggplot2)
+library(plotly)
+library(shiny)
+library('forecast')
+library(tseries)
+library(shiny)
+library(ggplot2)
+library(plotly)
 
 toFactor <- function(column,lev){
   return(factor(tolower(sub(" ","",column)),ordered = TRUE, levels = lev));
 }
 getTickets <- function(){
-  return(as.character(read.csv("data/tickets.csv")[[1]]));
+  return(as.character(read.csv("tickets.csv")[[1]]));
 }
 addTicket <- function(pTickets){
   tryCatch({
@@ -59,7 +43,7 @@ formateTicketDf <- function(df){
 write.csv(getTickets(), file="tempTickets.csv", row.names = FALSE)
 updateDatasets <- function(){
   tryCatch({
-    tickets <- as.character(read.csv("data/tempTickets.csv")[[1]])
+    tickets <- as.character(read.csv("tempTickets.csv")[[1]])
     print(NROW(tickets))
     for(tticket in tickets){
       
@@ -140,7 +124,7 @@ getSpeed <- function(df){
   return(as.numeric(lmdff$coefficients[2]) - as.numeric(lmdf$coefficients[2]))
 }
 getFundamentusData <- function(){
-  fund <- read.csv("data/BusinessJson.csv")
+  fund <- read.csv("BusinessJson.csv")
   fund$papel <- paste(fund$papel,".SA",sep = "")
   return(fund)
 }
@@ -233,8 +217,6 @@ updateAnalises <- function(obj){
       print(e)
     })
   }
-  
-  
   df <- data.frame(tickets[1:379],name[1:379],ticketValue[1:379],setor[1:379],subsetor[1:379],maxM[1:379],maxS[1:379],maxY[1:379],percW[1:379],percM[1:379],percT[1:379],mediaAmpl[1:379],concavity[1:379],volW[1:379],caD[1:379],vD[1:379],corWeek[1:379],caW[1:379],bW[1:379],sigW[1:379],corMonth[1:379],caM[1:379],sigM[1:379],corTri[1:379],caT[1:379],sigT[1:379])
   names(df) <- c("Ticket","Name","Value","Sector","Subsector","MaxM","MaxS","MaxY","PercW","PercM","PercT","MediaAmpl","Concavity","VolW","CaD","VD","CorrW","CaW","BW","SigW","CorrM","CaM","BM","SigM","CorrT","CaT","BT","SigT")
   return(df)
@@ -283,7 +265,7 @@ updateVarCA <- function(obj){
 }
 
 analiseTendencia <- function(obj,vFast,vSlow){
-  tickets <- as.character(read.csv("data/objTickets.csv")[[1]])
+  tickets <- as.character(read.csv("objTickets.csv")[[1]])
   newObj <- new.env()
   for(ticket in tickets){
     tryCatch({
@@ -307,7 +289,7 @@ analiseTendencia <- function(obj,vFast,vSlow){
 
 
 updateCATickets <- function(obj){
-  tickets <- as.character(read.csv("data/objTickets.csv")[[1]])
+  tickets <- as.character(read.csv("objTickets.csv")[[1]])
   newObj <- new.env()
   count <- NROW(tickets)
   for(ticket in tickets){
@@ -346,7 +328,7 @@ plotTendency <- function(ds){
 }
 
 getPotencialGain <- function(obj, from, to){
-  tickets <- as.character(read.csv("data/objTickets.csv")[[1]])
+  tickets <- as.character(read.csv("objTickets.csv")[[1]])
   newObj <- new.env()
   for(ticket in tickets){
     print(ticket)
@@ -431,7 +413,7 @@ getCATickets <- function(tickets){
 }
 
 getTendencyModel <- function(en,CAs){
-  tickets <- as.character(read.csv("data/objTickets.csv")[[1]])
+  tickets <- as.character(read.csv("objTickets.csv")[[1]])
   newObj <- new.env()
   for(ticket in tickets){
     lengthDs <- nrow(en[[ticket]])
