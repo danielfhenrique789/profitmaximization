@@ -71,7 +71,7 @@ updateDatasets <- function(){
       }
       
       dataset <- as.data.frame(getSymbols(Symbols = ticket, auto.assign = F,symbol.lookup = TRUE))
-      setDT(dataset, keep.rownames = TRUE)[]
+      #setDT(dataset, keep.rownames = TRUE)[]
       dataset <- formateTicketDf(dataset)
       dataset$Amplitude <- dataset$High - dataset$Low
       write.csv(dataset, file = paste("Datasets/",ticket,".csv",sep = ""), row.names = FALSE)
