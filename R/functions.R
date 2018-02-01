@@ -222,7 +222,7 @@ updateAnalises <- function(obj){
         sigW <- c(sigW,summary(lmWeek)$sigma)
         sigM <- c(sigM,summary(lmMonth)$sigma)
         sigT <- c(sigT,summary(lmTri)$sigma)
-        concavity <- ifelse(!is.na(caW) & !is.na(caW2),caW - caW2,NA)
+        concavity <- c(concavity,ifelse(!is.na(caW) & !is.na(caW2),caW - caW2,NA))
       }
       else{
         tickets <- tickets[!tickets %in% ticket]
