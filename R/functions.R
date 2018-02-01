@@ -60,6 +60,7 @@ formateTicketDf <- function(df){
 
 updateDatasets <- function(){
   tryCatch({
+    write.csv(getTickets(), file="data/tempTickets.csv", row.names = FALSE)
     tickets <- as.character(read.csv("data/tempTickets.csv")[[1]])
     print(NROW(tickets))
     for(tticket in tickets){
