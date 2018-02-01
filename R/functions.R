@@ -233,16 +233,7 @@ updateAnalises <- function(obj){
       print(e)
     })
   }
-  print(NROW(tickets[1:379]))
-  print(NROW(name[1:379]))
-  print(NROW(ticketValue[1:379]))
-  print(NROW(setor[1:379]))
-  print(NROW(subsetor[1:379]))
-  print(NROW(maxM[1:379]))
-  print(NROW(maxS[1:379]))
-  print(NROW(maxY[1:379]))
-  print(NROW(percW[1:379]))
-  print(NROW(percM[1:379]))
+  
   print(NROW(percT[1:379]))
   print(NROW(mediaAmpl[1:379]))
   print(NROW(concavity[1:379]))
