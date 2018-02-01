@@ -203,7 +203,7 @@ updateAnalises <- function(obj){
         maxM <- c(maxM,max(month[!is.na(month$Adjusted),]$Adjusted))
         maxS <- c(maxS,max(semester[!is.na(semester$Adjusted),]$Adjusted))
         maxY <- c(maxY,max(year[!is.na(year$Adjusted),]$Adjusted))
-        lmD3 <- lm(D3$Adjusted ~ index(D3$Date))
+        lmD3 <- lm(D3$Adjusted ~ D3$Date)
         lmWeek <- lm(week$Adjusted ~ index(week$Date))
         lmWeek2 <- lm(week2$Adjusted ~ index(week2$Date))
         lmMonth <- lm(month$Adjusted ~ index(month$Date))
