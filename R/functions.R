@@ -236,6 +236,7 @@ updateAnalises <- function(obj){
   
   print(NROW(percT[1:379]))
   print(NROW(mediaAmpl[1:379]))
+  print(concavity)
   print(NROW(concavity[1:379]))
   print(NROW(volW[1:379]))
   print(NROW(caD[1:379]))
