@@ -63,7 +63,7 @@ updateDatasets <- function(){
     tickets <- as.character(read.csv("data/tempTickets.csv")[[1]])
     print(NROW(tickets))
     for(tticket in tickets){
-      
+      print(paste("Log:", Sys.time(), paste("Updating...",tticket, sep = " ") , sep = " - "))
       tickets <- tickets[ tickets != as.character(tticket) ]
       ticket <- paste(tticket,".SA",sep = "")
       if(file.exists(paste("./Datasets/",ticket,".csv",sep = ""))){
@@ -78,9 +78,8 @@ updateDatasets <- function(){
     }
   }, 
   error=function(e){
-    print("Error:")
-    print(e)
-    write.csv(tickets, file="tempTickets.csv", row.names = FALSE)
+    print(paste("Error:", Sys.time(), e , sep = " - "))
+    write.csv(tickets, file="data/tempTickets.csv", row.names = FALSE)
     updateDatasets()
   })
 }
