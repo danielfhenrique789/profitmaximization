@@ -15,27 +15,6 @@ if (length(instPack) > 0) {
   install.packages(instPack)
   library(instPack)
 }
-# install.packages("quantmod")
-# install.packages("data.table")
-# install.packages("ggplot2")
-# install.packages("plotly")
-# install.packages("shiny")
-# install.packages("forecast")
-# install.packages("tseries")
-# install.packages("shiny")
-# install.packages("ggplot2")
-# install.packages("plotly")
-# 
-# library(quantmod)
-# library(data.table)
-# library(ggplot2)
-# library(plotly)
-# library(shiny)
-# library('forecast')
-# library(tseries)
-# library(shiny)
-# library(ggplot2)
-# library(plotly)
 
 toFactor <- function(column,lev){
   return(factor(tolower(sub(" ","",column)),ordered = TRUE, levels = lev));
@@ -435,10 +414,6 @@ getTendencyModel <- function(en,CAs){
   newObj <- new.env()
   for(ticket in tickets){
     lengthDs <- nrow(en[[ticket]])
-    # print(ticket)
-    # print(lengthDs)
-    # print(nrow(en[[ticket]][7:lengthDs,]))
-    # print(NROW(CAs[[ticket]]$CA[1:(lengthDs - 6)]))
     newObj[[ticket]] <- en[[ticket]]
     newObj[[ticket]]$CA <- -1
     
